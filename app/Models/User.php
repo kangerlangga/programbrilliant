@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'id_akun',
         'name',
         'email',
         'password',
+        'jabatan',
+        'level',
+        'telp',
+        'alamat',
+        'created_by',
+        'modified_by',
     ];
 
     /**
@@ -38,11 +45,11 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    // protected function casts(): array
+    // {
+    //     return [
+    //         'email_verified_at' => 'datetime',
+    //         'password' => 'hashed',
+    //     ];
+    // }
 }

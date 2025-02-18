@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublikController;
 use Illuminate\Support\Facades\Route;
@@ -9,10 +10,10 @@ Route::get('/', [PublikController::class, 'coming'])->name('home.publik');
 // Rute Admin
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dash');
-    // Route::get('/admin/profile/edit', [AdminController::class, 'editProf'])->name('prof.edit');
-    // Route::post('/admin/profile/updateProfile', [AdminController::class, 'updateProf'])->name('prof.update');
-    // Route::get('/admin/profile/editPass', [AdminController::class, 'editPass'])->name('prof.edit.pass');
-    // Route::post('/admin/profile/updatePass', [AdminController::class, 'updatePass'])->name('prof.update.pass');
+    Route::get('/admin/profile/edit', [AdminController::class, 'editProf'])->name('prof.edit');
+    Route::post('/admin/profile/updateProfile', [AdminController::class, 'updateProf'])->name('prof.update');
+    Route::get('/admin/profile/editPass', [AdminController::class, 'editPass'])->name('prof.edit.pass');
+    Route::post('/admin/profile/updatePass', [AdminController::class, 'updatePass'])->name('prof.update.pass');
 
     // Route::get('/admin/home', [HomeSliderController::class, 'index'])->name('home.data');
     // Route::get('/admin/home/add', [HomeSliderController::class, 'create'])->name('home.add');
