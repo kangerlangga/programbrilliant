@@ -44,32 +44,32 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                {{-- <li class="nav-item {{ Request::is('admin/home*') ? 'active' : '' }}">
-                    <a href="{{ route('home.data') }}">
-                        <i class="fas fa-images"></i>
-                        <p>Home Sliders</p>
+                <li class="nav-item {{ Request::is('admin/program*') ? 'active' : '' }}">
+                    <a href="{{ route('program.data') }}">
+                        <i class="fas fa-school"></i>
+                        <p>Learnings</p>
                     </a>
                 </li>
-                <li class="nav-item {{ Request::is('admin/message*') ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ Request::is('admin/message*') ? 'active' : '' }}">
                     <a href="{{ route('message.data') }}">
                         <i class="fas fa-envelope"></i>
                         <p>Customers</p>
                     </a>
-                </li>
-                <li class="nav-item {{ Request::is('admin/product*') ? 'active' : '' }}">
-                    <a href="{{ route('product.data') }}">
-                        <i class="fas fa-shopping-bag"></i>
-                        <p>Products</p>
-                    </a>
                 </li> --}}
-                {{-- @if (Auth::user()->level == 'Super Admin')
+                <li class="nav-item {{ Request::is('admin/order*') ? 'active' : '' }}">
+                    <a href="{{ route('order.data') }}">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Orders</p>
+                    </a>
+                </li>
+                @if (Auth::user()->level == 'Super Admin')
                 <li class="nav-item {{ Request::is('admin/user*') ? 'active' : '' }}">
                     <a href="{{ route('user.data') }}">
                         <i class="fas fa-user-cog"></i>
                         <p>Users</p>
                     </a>
                 </li>
-                @endif --}}
+                @endif
             </ul>
         </div>
     </div>

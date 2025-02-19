@@ -29,7 +29,7 @@
     <nav class="navbar navbar-header navbar-expand-lg" style="background-color: #404285">
         <div class="container-fluid">
         <!-- Running Text -->
-        <marquee behavior="" direction="" class="text-white mr-3">Welcome to the <b>Brilliant English Course</b> Easily manage your products and customer messages. Make sure your products stand out and provide a great experience for your customers!</marquee>
+        <marquee behavior="" direction="" class="text-white mr-3">Welcome to <b>Brilliant English Course Admin Panel</b> Easily manage transactions and programs to ensure the best service and an outstanding learning experience!</marquee>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link rounded bg-danger" href="#" onclick="confirmLogout()">
