@@ -32,7 +32,7 @@
                     <ul class="breadcrumbs">
                         <a href="{{ route('user.add') }}" class="btn btn-round text-white ml-auto fw-bold" style="background-color: #404285">
                             <i class="fa fa-plus-circle mr-1"></i>
-                            New Users
+                            Buat Akun
                         </a>
                     </ul>
                 </div>
@@ -137,7 +137,7 @@
 
         Swal.fire({
             title: 'The Password for This Account Will Be Reset!',
-            text: "Default = Admin.Nouran51",
+            text: "Default = Admin.BEC42",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',

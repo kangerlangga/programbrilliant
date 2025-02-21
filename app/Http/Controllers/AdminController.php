@@ -29,7 +29,7 @@ class AdminController extends Controller
     public function editProf()
     {
         $data = [
-            'judul' => 'Edit Profile',
+            'judul' => 'Edit Profil',
             // 'cMC' => Message::where('status_messages', 'Unread')->count(),
         ];
         return view('pages.admin.profile_edit', $data);
@@ -61,16 +61,16 @@ class AdminController extends Controller
             ]);
 
             //redirect to index
-            return redirect()->route('admin.dash')->with(['successprof' => 'Your Account has been Updated!']);
+            return redirect()->route('admin.dash')->with(['successprof' => 'Password Anda telah diperbarui!']);
         }else{
-            return redirect()->route('prof.edit')->with(['passerror' => 'Your Password is Incorrect!']);
+            return redirect()->route('prof.edit')->with(['passerror' => 'Password Anda saat ini salah!']);
         }
     }
 
     public function editPass()
     {
         $data = [
-            'judul' => 'Change Password',
+            'judul' => 'Ganti Password',
             // 'cMC' => Message::where('status_messages', 'Unread')->count(),
         ];
         return view('pages.admin.profile_editpass', $data);
@@ -97,9 +97,9 @@ class AdminController extends Controller
             ]);
 
             //redirect to index
-            return redirect()->route('prof.edit.pass')->with(['success' => 'Your Password has been Updated!']);
+            return redirect()->route('prof.edit.pass')->with(['success' => 'Password Anda telah diperbarui!']);
         }else{
-            return redirect()->route('prof.edit.pass')->with(['error' => 'Your Current Password is Incorrect!']);
+            return redirect()->route('prof.edit.pass')->with(['error' => 'Password Anda saat ini salah!']);
         }
     }
 }

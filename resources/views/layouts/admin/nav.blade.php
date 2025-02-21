@@ -29,7 +29,7 @@
     <nav class="navbar navbar-header navbar-expand-lg" style="background-color: #404285">
         <div class="container-fluid">
         <!-- Running Text -->
-        <marquee behavior="" direction="" class="text-white mr-3">Welcome to <b>Brilliant English Course Admin Panel</b> Easily manage transactions and programs to ensure the best service and an outstanding learning experience!</marquee>
+        <marquee behavior="" direction="" class="text-white mr-3">Selamat datang di <b>Brilliant English Course Admin Panel</b> - Kelola transaksi dan program dengan mudah untuk memastikan layanan terbaik dan pengalaman belajar yang luar biasa!</marquee>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link rounded bg-danger" href="#" onclick="confirmLogout()">

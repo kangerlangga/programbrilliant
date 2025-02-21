@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         if (Auth::user()->level == 'Super Admin') {
             $data = [
-                'judul' => 'Users Management',
+                'judul' => 'Manajemen Akun',
                 'DataU' => User::latest()->get(),
                 // 'cMC' => Message::where('status_messages', 'Unread')->count(),
             ];
@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         if (Auth::user()->level == 'Super Admin') {
             $data = [
-                'judul' => 'New Account User',
+                'judul' => 'Buat Akun Baru',
                 // 'cMC' => Message::where('status_messages', 'Unread')->count(),
             ];
             return view('pages.admin.user_add', $data);
@@ -104,7 +104,7 @@ class UserController extends Controller
                 return redirect()->route('prof.edit');
             }else{
                 $data = [
-                    'judul' => 'Edit Account User',
+                    'judul' => 'Edit Informasi Akun',
                     'EditUser' => $akun,
 
                     // 'cMC' => Message::where('status_messages', 'Unread')->count(),

@@ -35,7 +35,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group @error('Nama') has-error has-feedback @enderror">
-                                            <label for="Nama">Name</label>
+                                            <label for="Nama">Nama Lengkap</label>
                                             <input type="text" id="Nama" name="Nama" value="{{ old('Nama', Auth::user()->name) }}" class="form-control" required>
                                             @error('Nama')
                                             <small id="Nama" class="form-text text-muted">{{ $message }}</small>
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group @error('Address') has-error has-feedback @enderror">
-                                            <label for="Address">Address</label>
+                                            <label for="Address">Alamat</label>
                                             <input type="text" id="Address" name="Address" value="{{ old('Address', Auth::user()->alamat) }}" class="form-control" required>
                                             @error('Address')
                                             <small id="Address" class="form-text text-muted">{{ $message }}</small>
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group @error('Position') has-error has-feedback @enderror">
-                                            <label for="Position">Position</label>
+                                            <label for="Position">Jabatan</label>
                                             <input type="text" id="Position" name="Position" value="{{ old('Position', Auth::user()->jabatan) }}" class="form-control" required>
                                             @error('Position')
                                             <small id="Position" class="form-text text-muted">{{ $message }}</small>
@@ -62,13 +62,13 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="Email">Email (Cannot Be Changed)</label>
+                                            <label for="Email">Email (Tidak Dapat Diubah)</label>
                                             <input class="form-control" name="Email" value="{{ Auth::user()->email }}" id="Email" readonly style="cursor: not-allowed">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group @error('Phone') has-error has-feedback @enderror">
-                                            <label for="Phone">Phone Number</label>
+                                            <label for="Phone">Nomer Telepon</label>
                                             <input type="tel" id="Phone" name="Phone" value="{{ old('Phone', Auth::user()->telp) }}" class="form-control" required>
                                             @error('Phone')
                                             <small id="Phone" class="form-text text-muted">{{ $message }}</small>
@@ -77,29 +77,29 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="Level">Level Admin (Cannot Be Changed)</label>
+                                            <label for="Level">Level Admin (Tidak Dapat Diubah)</label>
                                             <input class="form-control" name="level" value="{{ Auth::user()->level }}" id="Level" readonly style="cursor: not-allowed">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Input Your Password" required>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required>
                                         </div>
                                         <div class="form-check">
                                             <label class="form-check-label" for="tampilPass">
                                                 <input class="form-check-input" type="checkbox" value="" id="tampilPass">
-                                                <span class="form-check-sign">Show Password</span>
+                                                <span class="form-check-sign">Tampilkan Password</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 mt-1">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-success fw-bold text-uppercase">
-                                                <i class="fas fa-save mr-2"></i>Save
+                                                <i class="fas fa-save mr-2"></i>Simpan
                                             </button>
                                             <a href="{{ route('admin.dash') }}" class="btn btn-warning fw-bold text-uppercase but-back">
-                                                <i class="fas fa-chevron-circle-left mr-2"></i>Back
+                                                <i class="fas fa-chevron-circle-left mr-2"></i>Kembali
                                             </a>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
         Swal.fire({
         icon: 'error',
         title: "{{ session('passerror') }}",
-        text: 'Unable to Update Account Information!',
+        text: 'Tidak dapat memperbarui informasi akun!',
         showConfirmButton: false,
         timer: 3000
         })
@@ -156,14 +156,14 @@
         const href1 = $(this).attr('href');
 
         Swal.fire({
-            title: 'Are you sure?',
-            text: "Changes will not be Saved!",
+            title: 'Apakah Anda yakin?',
+            text: "Perubahan tidak akan disimpan!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#198754',
             cancelButtonColor: '#fd7e14',
-            confirmButtonText: 'BACK',
-            cancelButtonText: 'CANCEL'
+            confirmButtonText: 'KEMBALI',
+            cancelButtonText: 'BATAL'
             }).then((result) => {
             if (result.isConfirmed) {
                 document.location.href = href1;

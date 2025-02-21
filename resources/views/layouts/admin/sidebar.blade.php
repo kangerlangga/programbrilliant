@@ -20,12 +20,12 @@
                         <ul class="nav">
                             <li>
                                 <a href="{{ route('prof.edit') }}">
-                                    <span class="link-collapse">Edit Profile</span>
+                                    <span class="link-collapse">Edit Profil</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('prof.edit.pass') }}">
-                                    <span class="link-collapse">Change Password</span>
+                                    <span class="link-collapse">Ganti Password</span>
                                 </a>
                             </li>
                             <li>
@@ -47,7 +47,7 @@
                 <li class="nav-item {{ Request::is('admin/program*') ? 'active' : '' }}">
                     <a href="{{ route('program.data') }}">
                         <i class="fas fa-school"></i>
-                        <p>Learnings</p>
+                        <p>Program</p>
                     </a>
                 </li>
                 {{-- <li class="nav-item {{ Request::is('admin/message*') ? 'active' : '' }}">
@@ -59,14 +59,14 @@
                 <li class="nav-item {{ Request::is('admin/order*') ? 'active' : '' }}">
                     <a href="{{ route('order.data') }}">
                         <i class="fas fa-shopping-cart"></i>
-                        <p>Orders</p>
+                        <p>Transaksi</p>
                     </a>
                 </li>
                 @if (Auth::user()->level == 'Super Admin')
                 <li class="nav-item {{ Request::is('admin/user*') ? 'active' : '' }}">
                     <a href="{{ route('user.data') }}">
                         <i class="fas fa-user-cog"></i>
-                        <p>Users</p>
+                        <p>Akun</p>
                     </a>
                 </li>
                 @endif

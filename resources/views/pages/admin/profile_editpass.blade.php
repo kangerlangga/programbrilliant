@@ -35,14 +35,14 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="Old-Pass">Current Password</label>
-                                            <input type="password" class="form-control" id="Old-Pass" name="oldPass" value="{{ old('oldPass') }}" placeholder="Input Your Current Password" required>
+                                            <label for="Old-Pass">Password Lama</label>
+                                            <input type="password" class="form-control" id="Old-Pass" name="oldPass" value="{{ old('oldPass') }}" placeholder="Masukkan Password Lama" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group @error('newPass') has-error has-feedback @enderror">
-                                            <label for="newPass">New Password</label>
-                                            <input type="password" class="form-control" id="newPass" name="newPass" value="{{ old('newPass') }}" placeholder="Input Your New Password" required>
+                                            <label for="newPass">Password Baru</label>
+                                            <input type="password" class="form-control" id="newPass" name="newPass" value="{{ old('newPass') }}" placeholder="Masukkan Password Baru" required>
                                             @error('newPass')
                                             <small id="newPass" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
@@ -50,8 +50,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group @error('password_confirmation') has-error has-feedback @enderror">
-                                            <label for="password_confirmation">Confirm New Password</label>
-                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Input Your New Password" required>
+                                            <label for="password_confirmation">Konfirmasi Password Baru</label>
+                                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="Masukkan Password Baru" required>
                                             @error('password_confirmation')
                                             <small id="password_confirmation" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
@@ -61,17 +61,17 @@
                                         <div class="form-check">
                                             <label class="form-check-label" for="lihat-password">
                                                 <input class="form-check-input" type="checkbox" value="" id="lihat-password">
-                                                <span class="form-check-sign">Show Password</span>
+                                                <span class="form-check-sign">Tampilkan Password</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 mt-1">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-success fw-bold text-uppercase">
-                                                <i class="fas fa-save mr-2"></i>Save
+                                                <i class="fas fa-save mr-2"></i>Simpan
                                             </button>
                                             <a href="{{ route('admin.dash') }}" class="btn btn-warning fw-bold text-uppercase but-back">
-                                                <i class="fas fa-chevron-circle-left mr-2"></i>Back
+                                                <i class="fas fa-chevron-circle-left mr-2"></i>Kembali
                                             </a>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
         Swal.fire({
         icon: 'success',
         title: "{{ session('success') }}",
-        text: 'You will be Logout in a Few Seconds!',
+        text: 'Anda akan logout dalam beberapa detik!',
         showConfirmButton: false,
         timer: 5000
         })
@@ -130,14 +130,14 @@
         const href1 = $(this).attr('href');
 
         Swal.fire({
-            title: 'Are you sure?',
-            text: "Changes will not be Saved!",
+            title: 'Apakah Anda yakin?',
+            text: "Perubahan tidak akan disimpan!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#198754',
             cancelButtonColor: '#fd7e14',
-            confirmButtonText: 'BACK',
-            cancelButtonText: 'CANCEL'
+            confirmButtonText: 'KEMBALI',
+            cancelButtonText: 'BATAL'
             }).then((result) => {
             if (result.isConfirmed) {
                 document.location.href = href1;

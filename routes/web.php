@@ -8,6 +8,10 @@ use App\Http\Controllers\PublikController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/server-time', function () {
+    return response()->json(['server_time' => now()->toDateTimeString()]);
+});
+
 Route::get('/', [PublikController::class, 'coming'])->name('home.publik');
 
 // Rute Admin
