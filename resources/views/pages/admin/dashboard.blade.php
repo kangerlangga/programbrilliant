@@ -33,8 +33,8 @@
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Jumlah Program Belajar</p>
-                                            <h4 class="card-title"> Kelas</h4>
+                                            <p class="card-category">Total Program</p>
+                                            <h4 class="card-title"> Item</h4>
                                         </div>
                                     </div>
                                 </div>

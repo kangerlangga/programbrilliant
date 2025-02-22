@@ -11,14 +11,14 @@
 <script>
 function confirmLogout() {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You will be logged out from your account!",
+        title: 'Apakah Anda yakin?',
+        text: "Anda akan logout dari akun Anda!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Yes, Logout!',
-        cancelButtonText: 'Cancel'
+        confirmButtonText: 'Logout!',
+        cancelButtonText: 'Batal'
     }).then((result) => {
         if (result.isConfirmed) {
             document.getElementById('logout-admin').submit();

@@ -115,14 +115,14 @@
         const href1 = $(this).attr('href');
 
         Swal.fire({
-            title: 'Are you sure?',
-            text: "This data will be Permanently Deleted!",
+            title: 'Apakah Anda yakin?',
+            text: "Data ini akan Dihapus Secara Permanen!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#fd7e14',
-            confirmButtonText: 'DELETE',
-            cancelButtonText: 'CANCEL'
+            confirmButtonText: 'HAPUS',
+            cancelButtonText: 'BATAL'
             }).then((result) => {
             if (result.isConfirmed) {
                 document.location.href = href1;
@@ -136,7 +136,7 @@
         const href1 = $(this).attr('href');
 
         Swal.fire({
-            title: 'The Password for This Account Will Be Reset!',
+            title: 'Password Akun Ini Akan Direset!',
             text: "Default = Admin.BEC42",
             icon: 'warning',
             showCancelButton: true,

@@ -76,7 +76,7 @@ class UserController extends Controller
             ]);
 
             //redirect to index
-            return redirect()->route('user.add')->with(['success' => 'User has been Added!']);
+            return redirect()->route('user.add')->with(['success' => 'Akun telah Ditambahkan!']);
         }else{
             return redirect()->route('admin.dash');
         }
@@ -144,7 +144,7 @@ class UserController extends Controller
             ]);
 
             //redirect to index
-            return redirect()->route('user.data')->with(['success' => 'User has been Updated!']);
+            return redirect()->route('user.data')->with(['success' => 'Akun telah Diperbarui!']);
         }else{
             return redirect()->route('admin.dash');
         }
@@ -161,12 +161,12 @@ class UserController extends Controller
             $akun = User::findOrFail($getID->id);
             if ($akun->id_akun == Auth::user()->id_akun) {
                 //redirect to index
-                return redirect()->route('user.data')->with(['error' => 'User Failed to be Deleted!']);
+                return redirect()->route('user.data')->with(['error' => 'Gagal Menghapus Akun!']);
             }else{
                 //delete
                 $akun->delete();
                 //redirect to index
-                return redirect()->route('user.data')->with(['success' => 'User has been Deleted!']);
+                return redirect()->route('user.data')->with(['success' => 'Akun telah Dihapus!']);
             }
         }else{
             return redirect()->route('admin.dash');
@@ -181,7 +181,7 @@ class UserController extends Controller
             $akun = User::findOrFail($getID->id);
             if ($akun->id_akun == Auth::user()->id_akun) {
                 //redirect to index
-                return redirect()->route('user.data')->with(['error' => 'Password Failed to be Reset!']);
+                return redirect()->route('user.data')->with(['error' => 'Gagal Mereset Password!']);
             }else{
                 $defPass = 'Admin.Nouran51';
                 $sandi = password_hash($defPass, PASSWORD_DEFAULT);
@@ -191,7 +191,7 @@ class UserController extends Controller
                     'modified_by' => Auth::user()->email,
                 ]);
                 //redirect to index
-                return redirect()->route('user.data')->with(['success' => 'Password has been Reset!']);
+                return redirect()->route('user.data')->with(['success' => 'Password telah Direset!']);
             }
         }else{
             return redirect()->route('admin.dash');

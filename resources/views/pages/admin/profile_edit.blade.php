@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group @error('Phone') has-error has-feedback @enderror">
-                                            <label for="Phone">Nomer Telepon</label>
+                                            <label for="Phone">Nomor Telepon</label>
                                             <input type="tel" id="Phone" name="Phone" value="{{ old('Phone', Auth::user()->telp) }}" class="form-control" required>
                                             @error('Phone')
                                             <small id="Phone" class="form-text text-muted">{{ $message }}</small>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="Level">Level Admin (Tidak Dapat Diubah)</label>
+                                            <label for="Level">Level Akun (Tidak Dapat Diubah)</label>
                                             <input class="form-control" name="level" value="{{ Auth::user()->level }}" id="Level" readonly style="cursor: not-allowed">
                                         </div>
                                     </div>

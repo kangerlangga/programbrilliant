@@ -61,7 +61,7 @@ class AdminController extends Controller
             ]);
 
             //redirect to index
-            return redirect()->route('admin.dash')->with(['successprof' => 'Password Anda telah diperbarui!']);
+            return redirect()->route('admin.dash')->with(['successprof' => 'Akun Anda telah diperbarui!']);
         }else{
             return redirect()->route('prof.edit')->with(['passerror' => 'Password Anda saat ini salah!']);
         }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProgramController extends Controller
 {
@@ -12,7 +14,12 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'judul' => 'Manajemen Program',
+            'DataP' => Program::latest()->get(),
+            // 'cOP' => Order::where('status_orders', 'Pending')->count(),
+        ];
+        return view('pages.admin.program', $data);
     }
 
     /**
@@ -20,7 +27,11 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'judul' => 'Program Baru',
+            // 'cOP' => Order::where('status_orders', 'Pending')->count(),
+        ];
+        return view('pages.admin.program_add', $data);
     }
 
     /**
@@ -28,7 +39,31 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Title'     => 'required|max:255',
+            'Subtitle'  => 'required|max:255',
+            'Price'     => 'required|numeric|min:1',
+            'AdminP'    => 'required|numeric|min:0',
+            'Benefit'   => 'required',
+        ]);
+
+        //create
+        Program::create([
+            'id_programs'       => 'Program'.Str::random(33),
+            'code_programs'     => Str::random(9),
+            'category_programs' => $request->category,
+            'title_programs'    => $request->Title,
+            'subtitle_programs' => $request->Subtitle,
+            'price_programs'    => $request->Price,
+            'admin_programs'    => $request->AdminP,
+            'benefit_programs'  => $request->Benefit,
+            'visib_programs'    => $request->visibility,
+            'created_by'        => Auth::user()->email,
+            'modified_by'       => Auth::user()->email,
+        ]);
+
+        //redirect to index
+        return redirect()->route('program.add')->with(['success' => 'Program telah Ditambahkan!']);
     }
 
     /**
