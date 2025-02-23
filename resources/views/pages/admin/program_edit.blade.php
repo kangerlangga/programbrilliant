@@ -30,63 +30,81 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                            <form method="POST" action="{{ route('comment.update', $EditComment->id_comments) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('program.update', $EditProgram->id_programs) }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="form-group @error('Author') has-error has-feedback @enderror">
-                                            <label for="Author">Author Name</label>
-                                            <input type="text" id="Author" name="Author" value="{{ old('Author', $EditComment->author_comments) }}" class="form-control" required>
-                                            @error('Author')
-                                            <small id="Author" class="form-text text-muted">{{ $message }}</small>
+                                        <div class="form-group">
+                                            <label for="category">Kategori Program</label>
+                                            <select class="form-control" id="category" name="category">
+                                                <option name='category' value='Kelas Offline' {{ $EditProgram->category_programs == 'Kelas Offline' ? 'selected' : '' }}>Kelas Offline</option>
+                                                <option name='category' value='Kelas Online' {{ $EditProgram->category_programs == 'Kelas Online' ? 'selected' : '' }}>Kelas Online</option>
+                                                <option name='category' value='Kelas Offline + Holiday' {{ $EditProgram->category_programs == 'Kelas Offline + Holiday' ? 'selected' : '' }}>Kelas Offline + Holiday</option>
+                                                <option name='category' value='Paket Liburan (Khusus Member)' {{ $EditProgram->category_programs == 'Paket Liburan (Khusus Member)' ? 'selected' : '' }}>Paket Liburan (Khusus Member)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group @error('Title') has-error has-feedback @enderror">
+                                            <label for="Title">Judul Program</label>
+                                            <input type="text" id="Title" name="Title" value="{{ old('Title', $EditProgram->title_programs) }}" class="form-control" placeholder="Masukkan Judul" required>
+                                            @error('Title')
+                                            <small id="Title" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group @error('Email') has-error has-feedback @enderror">
-                                            <label for="Email">Email</label>
-                                            <input type="email" id="Email" name="Email" value="{{ old('Email', $EditComment->email_comments) }}" class="form-control" required>
-                                            @error('Email')
-                                            <small id="Email" class="form-text text-muted">{{ $message }}</small>
+                                        <div class="form-group @error('Subtitle') has-error has-feedback @enderror">
+                                            <label for="Subtitle">Subjudul Program</label>
+                                            <input type="text" id="Subtitle" name="Subtitle" value="{{ old('Subtitle', $EditProgram->subtitle_programs) }}" class="form-control" placeholder="Masukkan Subjudul (Contoh : 90 Hari)" required>
+                                            @error('Subtitle')
+                                            <small id="Subtitle" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group @error('Phone') has-error has-feedback @enderror">
-                                            <label for="Phone">Phone Number</label>
-                                            <input type="tel" id="Phone" name="Phone" value="{{ old('Phone', $EditComment->phone_comments) }}" class="form-control" required>
-                                            @error('Phone')
-                                            <small id="Phone" class="form-text text-muted">{{ $message }}</small>
+                                        <div class="form-group @error('Price') has-error has-feedback @enderror">
+                                            <label for="Price">Harga Program</label>
+                                            <input type="number" id="Price" name="Price" value="{{ old('Price', $EditProgram->price_programs) }}" class="form-control" min="1" placeholder="Masukkan hanya Angka (Contoh : 125000)" required oninput="this.value = this.value.replace(/\D/g, '')">
+                                            @error('Price')
+                                            <small id="Price" class="form-text text-muted">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group @error('AdminP') has-error has-feedback @enderror">
+                                            <label for="AdminP">Biaya Admin (Gunakan 0 Jika Gratis)</label>
+                                            <input type="number" id="AdminP" name="AdminP" value="{{ old('AdminP', $EditProgram->admin_programs) }}" class="form-control" min="0" placeholder="Masukkan hanya Angka (Contoh : 125000)" required oninput="this.value = this.value.replace(/\D/g, '')">
+                                            @error('AdminP')
+                                            <small id="AdminP" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                        <div class="form-group @error('Comment') has-error has-feedback @enderror">
-                                            <label for="Comment">Comment</label>
-                                            <textarea class="form-control" id="Comment" name="Comment">
-                                                {{ old('Comment', $EditComment->content_comments) }}
-                                            </textarea>
-                                            @error('Comment')
-                                            <small id="Comment" class="form-text text-muted">{{ $message }}</small>
+                                        <div class="form-group @error('Benefit') has-error has-feedback @enderror">
+                                            <label for="Benefit">Benefit (Baris Baru / Enter untuk Poin Baru)</label>
+                                            <textarea class="form-control" id="Benefit" name="Benefit" placeholder="Benefit 1 &#10;Benefit 2">{{ old('Benefit', $EditProgram->benefit_programs) }}</textarea>
+                                            @error('Benefit')
+                                            <small id="Benefit" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="visibility">Visibility</label>
+                                            <label for="visibility">Visibilitas</label>
                                             <select class="form-control" id="visibility" name="visibility">
-                                                <option name='visibility' value='Showing' {{ $EditComment->visib_comments == 'Showing' ? 'selected' : '' }}>Showing (Publish)</option>
-                                                <option name='visibility' value='Hiding' {{ $EditComment->visib_comments == 'Hiding' ? 'selected' : '' }}>Hiding (Unpublish)</option>
+                                                <option name='visibility' value='Showing' {{ $EditProgram->visib_programs == 'Showing' ? 'selected' : '' }}>Tampilkan</option>
+                                                <option name='visibility' value='Hiding' {{ $EditProgram->visib_programs == 'Hiding' ? 'selected' : '' }}>Sembunyikan</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 mt-1">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-success fw-bold text-uppercase">
-                                                <i class="fas fa-save mr-2"></i>Save
+                                                <i class="fas fa-save mr-2"></i>Simpan
                                             </button>
-                                            <a href="{{ route('comment.data') }}" class="btn btn-warning fw-bold text-uppercase but-back">
-                                                <i class="fas fa-chevron-circle-left mr-2"></i>Back
+                                            <a href="{{ route('program.data') }}" class="btn btn-warning fw-bold text-uppercase but-back">
+                                                <i class="fas fa-chevron-circle-left mr-2"></i>Kembali
                                             </a>
                                         </div>
                                     </div>
@@ -109,62 +127,20 @@
         const href1 = $(this).attr('href');
 
         Swal.fire({
-            title: 'Are you sure?',
-            text: "Changes will not be Saved!",
+            title: 'Apakah Anda yakin?',
+            text: "Perubahan tidak akan disimpan!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#198754',
             cancelButtonColor: '#fd7e14',
-            confirmButtonText: 'BACK',
-            cancelButtonText: 'CANCEL'
+            confirmButtonText: 'KEMBALI',
+            cancelButtonText: 'BATAL'
             }).then((result) => {
             if (result.isConfirmed) {
                 document.location.href = href1;
             }
         });
     });
-</script>
-<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
-<script type="importmap">
-    {
-        "imports": {
-            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
-            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
-        }
-    }
-</script>
-<script type="module">
-    import {
-        ClassicEditor,
-        Essentials,
-        Paragraph,
-        Bold,
-        Italic,
-        Font
-    } from 'ckeditor5';
-    ClassicEditor
-        .create( document.querySelector( '#Comment' ), {
-            plugins: [
-                Essentials, Paragraph, Bold, Italic, Font
-            ],
-            toolbar: [
-                'undo', 'redo', '|', 'bold', 'italic', '|',
-                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-            ]
-        } )
-        .then( editor => {
-            window.editor = editor;
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
-<script>
-    window.onload = function() {
-        if ( window.location.protocol === 'file:' ) {
-            alert( 'This sample requires an HTTP server. Please serve this file with a web server.' );
-        }
-    };
 </script>
 @endsection
 

@@ -65,7 +65,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group @error('Price') has-error has-feedback @enderror">
                                             <label for="Price">Harga Program</label>
-                                            <input type="number" id="Price" name="Price" value="{{ old('Price') }}" class="form-control" min="1" placeholder="Masukkan hanya Angka (Contoh : 125000)" required>
+                                            <input type="number" id="Price" name="Price" value="{{ old('Price') }}" class="form-control" min="1" placeholder="Masukkan hanya Angka (Contoh : 125000)" required oninput="this.value = this.value.replace(/\D/g, '')">
                                             @error('Price')
                                             <small id="Price" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
@@ -74,7 +74,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group @error('AdminP') has-error has-feedback @enderror">
                                             <label for="AdminP">Biaya Admin (Gunakan 0 Jika Gratis)</label>
-                                            <input type="number" id="AdminP" name="AdminP" value="{{ old('AdminP') }}" class="form-control" min="0" placeholder="Masukkan hanya Angka (Contoh : 125000)" required>
+                                            <input type="number" id="AdminP" name="AdminP" value="{{ old('AdminP') }}" class="form-control" min="0" placeholder="Masukkan hanya Angka (Contoh : 125000)" required oninput="this.value = this.value.replace(/\D/g, '')">
                                             @error('AdminP')
                                             <small id="AdminP" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
@@ -83,7 +83,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group @error('Benefit') has-error has-feedback @enderror">
                                             <label for="Benefit">Benefit (Baris Baru / Enter untuk Poin Baru)</label>
-                                            <textarea class="form-control" id="Benefit" name="Benefit" placeholder="Benefit 1 &#10;Benefit 2"></textarea>
+                                            <textarea class="form-control" id="Benefit" name="Benefit" placeholder="Benefit 1 &#10;Benefit 2">{{ old('Benefit') }}</textarea>
                                             @error('Benefit')
                                             <small id="Benefit" class="form-text text-muted">{{ $message }}</small>
                                             @enderror

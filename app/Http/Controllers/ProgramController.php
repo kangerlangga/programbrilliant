@@ -77,24 +77,57 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Program $program)
+    public function edit(string $id)
     {
-        //
+        $data = [
+            'judul' => 'Edit Program',
+            'EditProgram' => Program::findOrFail($id),
+            // 'cOP' => Order::where('status_orders', 'Pending')->count(),
+        ];
+        return view('pages.admin.program_edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'Title'     => 'required|max:255',
+            'Subtitle'  => 'required|max:255',
+            'Price'     => 'required|numeric|min:1',
+            'AdminP'    => 'required|numeric|min:0',
+            'Benefit'   => 'required',
+        ]);
+
+        $program = Program::findOrFail($id);
+
+        $program->update([
+            'category_programs' => $request->category,
+            'title_programs'    => $request->Title,
+            'subtitle_programs' => $request->Subtitle,
+            'price_programs'    => $request->Price,
+            'admin_programs'    => $request->AdminP,
+            'benefit_programs'  => $request->Benefit,
+            'visib_programs'    => $request->visibility,
+            'modified_by'       => Auth::user()->email,
+        ]);
+
+        return redirect()->route('program.data')->with(['success' => 'Program telah Diperbarui!']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Program $program)
+    public function destroy(string $id)
     {
-        //
+        //get by ID
+        $program = Program::findOrFail($id);
+
+        //delete
+        $program->delete();
+
+        //redirect to index
+        return redirect()->route('program.data')->with(['success' => 'Program telah Dihapus!']);
     }
 }

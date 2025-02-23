@@ -6,6 +6,15 @@
 
 @section('content')
 <style>
+.card-pricing2.card-info {
+    border-bottom-color: #404285;
+}
+.card-pricing2.card-info:before {
+    background-color: #404285;
+}
+.card-pricing2 .pricing-content li.disable:before, .card-pricing2 .pricing-content li:before {
+    background-color: #2bd67b;
+}
 @media (max-width: 768px) {
     .page-header {
         display: flex;
@@ -41,7 +50,14 @@
                     <div class="col-md-4 pl-md-0">
                         <div class="card-pricing2 card-info">
                             <div class="pricing-header pb-0">
-                                <h3 class="fw-bold">{{ $P->title_programs }}</h3>
+                                <h3 class="fw-bold">
+                                    {{ $P->title_programs }} 
+                                    @if ($P->visib_programs == 'Showing')
+                                        <i class="fas fa-fw fa-solid fa-globe"></i>
+                                    @elseif ($P->visib_programs == 'Hiding')
+                                        <i class="fas fa-fw fa-solid fa-lock"></i>
+                                    @endif
+                                </h3>
                                 <h1 class="fw-bold">Rp {{ number_format($P->price_programs, 0, ',', '.') }}</h1>
                                 <span class="sub-title">{{ $P->category_programs }}</span>
                                 <span class="sub-title">{{ $P->subtitle_programs }}</span>
