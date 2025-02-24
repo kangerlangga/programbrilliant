@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('id_periodes')->primary();
             $table->date('date_periodes');
             $table->string('status_periodes');
+            $table->string('category_periodes');
             $table->string('created_by');
             $table->string('modified_by');
             $table->timestamps();

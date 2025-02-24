@@ -34,6 +34,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/periode/add', [PeriodeController::class, 'create'])->name('periode.add');
     Route::post('/admin/periode/store', [PeriodeController::class, 'store'])->name('periode.store');
     Route::get('/admin/periode/edit/{id}', [PeriodeController::class, 'edit'])->name('periode.edit');
+    Route::get('/admin/periode/aktif/{id}', [PeriodeController::class, 'aktif'])->name('periode.aktif');
+    Route::get('/admin/periode/nonaktif/{id}', [PeriodeController::class, 'nonaktif'])->name('periode.nonaktif');
     Route::post('/admin/periode/update/{id}', [PeriodeController::class, 'update'])->name('periode.update');
     Route::get('/admin/periode/delete/{id}', [PeriodeController::class, 'destroy'])->name('periode.delete');
 

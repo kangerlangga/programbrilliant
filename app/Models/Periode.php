@@ -36,6 +36,7 @@ class Periode extends Model
         'id_periodes', 
         'date_periodes', 
         'status_periodes',
+        'category_periodes',
         'created_by', 
         'modified_by'
     ];

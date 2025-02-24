@@ -48,24 +48,34 @@
                                         <thead>
                                             <tr>
                                                 <th>Periode</th>
+                                                <th>Kategori</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($DataP as $P)
                                             <tr>
                                                 <td>{{ $P->date_periodes }}</td>
-                                                <td>{{ $P->status_periodes }}</td>
+                                                <td>{{ $P->category_periodes }}</td>
+                                                <td class="{{ $P->status_periodes == 'Aktif' ? 'text-success' : 'text-danger' }}">{{ $P->status_periodes }}</td>
                                                 <td>
                                                     <div class="form-button-action">
-                                                        <a href="{{ route('periode.edit', $P->id_periodes) }}">
-                                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                                <i class="fa fa-edit"></i>
+                                                        @if ($P->status_periodes == 'Aktif')
+                                                        <a href="{{ route('periode.nonaktif', $P->id_periodes) }}">
+                                                            <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Nonaktifkan">
+                                                                <i class="fas fa-toggle-off"></i>
                                                             </button>
                                                         </a>
+                                                        @elseif ($P->status_periodes == 'Nonaktif')
+                                                        <a href="{{ route('periode.aktif', $P->id_periodes) }}">
+                                                            <button type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Aktifkan">
+                                                                <i class="fas fa-toggle-on"></i>
+                                                            </button>
+                                                        </a>
+                                                        @endif
                                                         <a href="{{ route('periode.delete', $P->id_periodes) }}" class="but-delete">
-                                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Delete">
+                                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
                                                         </a>
@@ -87,6 +97,17 @@
 </div>
 @include('layouts.admin.script')
 <script>
+    $(document).ready(function() {
+       $('#basic-datatables').DataTable({
+            "columnDefs": [
+                {
+                    "targets": [0],
+                    "type": "date"
+                }
+            ]
+        });
+    });
+
     $(document).on('click','.but-delete',function(e) {
 
         e.preventDefault();
