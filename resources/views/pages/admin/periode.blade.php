@@ -56,7 +56,7 @@
                                         <tbody>
                                             @foreach ($DataP as $P)
                                             <tr>
-                                                <td>{{ $P->date_periodes }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($P->date_periodes)->locale('id')->translatedFormat('Y-m-d (l)') }}</td>
                                                 <td>{{ $P->category_periodes }}</td>
                                                 <td class="{{ $P->status_periodes == 'Aktif' ? 'text-success' : 'text-danger' }}">{{ $P->status_periodes }}</td>
                                                 <td>
