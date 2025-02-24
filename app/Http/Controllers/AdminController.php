@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +19,8 @@ class AdminController extends Controller
         $fiveMinutesAgo = $now - 300;
         $data = [
             'judul' => 'Dashboard',
-            // 'cP' => Product::count(),
-            // 'cM' => Message::count(),
-            // 'cMC' => Message::where('status_messages', 'Unread')->count(),
+            'jPs' => Program::where('visib_programs', 'Showing')->count(),
+            'jPh' => Program::where('visib_programs', 'Hiding')->count(),
             'cVO' => DB::table('sessions')->where('last_activity', '>=', $fiveMinutesAgo)->count(),
         ];
         return view('pages.admin.dashboard', $data);

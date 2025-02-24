@@ -50,16 +50,22 @@
                         <p>Program</p>
                     </a>
                 </li>
-                {{-- <li class="nav-item {{ Request::is('admin/message*') ? 'active' : '' }}">
-                    <a href="{{ route('message.data') }}">
-                        <i class="fas fa-envelope"></i>
-                        <p>Customers</p>
+                <li class="nav-item {{ Request::is('admin/periode*') ? 'active' : '' }}">
+                    <a href="{{ route('periode.data') }}">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>Periode</p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item {{ Request::is('admin/order*') ? 'active' : '' }}">
                     <a href="{{ route('order.data') }}">
                         <i class="fas fa-shopping-cart"></i>
                         <p>Transaksi</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::is('admin/payment*') ? 'active' : '' }}">
+                    <a href="{{ route('payment.data') }}">
+                        <i class="fas fa-money-check-alt"></i>
+                        <p>Pembayaran</p>
                     </a>
                 </li>
                 @if (Auth::user()->level == 'Super Admin')

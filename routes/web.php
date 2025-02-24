@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublikController;
@@ -29,6 +30,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/program/update/{id}', [ProgramController::class, 'update'])->name('program.update');
     Route::get('/admin/program/delete/{id}', [ProgramController::class, 'destroy'])->name('program.delete');
 
+    Route::get('/admin/periode', [PeriodeController::class, 'index'])->name('periode.data');
+    Route::get('/admin/periode/add', [PeriodeController::class, 'create'])->name('periode.add');
+    Route::post('/admin/periode/store', [PeriodeController::class, 'store'])->name('periode.store');
+    Route::get('/admin/periode/edit/{id}', [PeriodeController::class, 'edit'])->name('periode.edit');
+    Route::post('/admin/periode/update/{id}', [PeriodeController::class, 'update'])->name('periode.update');
+    Route::get('/admin/periode/delete/{id}', [PeriodeController::class, 'destroy'])->name('periode.delete');
+
     Route::get('/admin/order', [OrderController::class, 'index'])->name('order.data');
     Route::get('/admin/order/add', [OrderController::class, 'create'])->name('order.add');
     Route::post('/admin/order/store', [OrderController::class, 'store'])->name('order.store');
@@ -36,10 +44,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/order/update/{id}', [OrderController::class, 'update'])->name('order.update');
     Route::get('/admin/order/delete/{id}', [OrderController::class, 'destroy'])->name('order.delete');
 
-    // Route::get('/admin/message', [MessageController::class, 'index'])->name('message.data');
-    // Route::get('/admin/message/detail/{id}', [MessageController::class, 'show'])->name('message.detail');
-    // Route::post('/admin/message/update/{id}', [MessageController::class, 'update'])->name('message.update');
-    // Route::get('/admin/message/delete/{id}', [MessageController::class, 'destroy'])->name('message.delete');
+    Route::get('/admin/payment', [PaymentController::class, 'index'])->name('payment.data');
+    Route::get('/admin/payment/detail/{id}', [PaymentController::class, 'show'])->name('payment.detail');
+    Route::post('/admin/payment/update/{id}', [PaymentController::class, 'update'])->name('payment.update');
+    Route::get('/admin/payment/delete/{id}', [PaymentController::class, 'destroy'])->name('payment.delete');
 
     Route::get('/admin/user', [UserController::class, 'index'])->name('user.data');
     Route::get('/admin/user/add', [UserController::class, 'create'])->name('user.add');

@@ -34,7 +34,12 @@
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
                                             <p class="card-category">Total Program</p>
-                                            <h4 class="card-title"> Item</h4>
+                                            <h4 class="card-title">
+                                            <i class="fas fa-fw fa-solid fa-globe"></i> {{ $jPs }} Item
+                                            @if($jPh > 0)
+                                                | <i class="fas fa-fw fa-solid fa-lock"></i> {{ $jPh }} Item
+                                            @endif
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>

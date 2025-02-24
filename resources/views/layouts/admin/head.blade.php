@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{ $judul }} | Admin Brilliant English Course</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" type="image/png" href="{{  url('') }}/assets/logo/logo.png">
+	<link rel="icon" type="image/png" href="{{  url('') }}/assets/logo/logop.png">
 
 	<!-- Fonts and icons -->
 	<script src="{{  url('') }}/assets/admin/js/plugin/webfont/webfont.min.js"></script>

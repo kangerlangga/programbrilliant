@@ -33,7 +33,7 @@
     <title>{{ $judul }} | Brilliant English Course</title>
     <meta name="keywords" content="Brilliant, Kampung Inggris Pare, Brilliant English Course, Brilliant Kampung Inggris">
     <meta name="description" content="Brilliant English Course adalah Lembaga Pendidikan yang berfokus dalam pengajaran bahasa inggris yang sudah berdiri sejak tahun 2015 atas ijin dari DIKNAS dan DIPORA yang bertempat di kecamatan Pare, kabupaten Kediri, Jawa Timur.">
-    <link rel="icon" type="image/png" href="{{  url('') }}/assets/logo/logo.png">
+    <link rel="icon" type="image/png" href="{{  url('') }}/assets/logo/logop.png">
     <!-- Bootstrap CSS Link -->
     <link rel="stylesheet" href="{{  url('') }}/assets/coming/css/vendor/bootstrap.min.css">
     <!-- Theme CSS Link -->
